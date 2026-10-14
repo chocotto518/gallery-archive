@@ -9,20 +9,9 @@
 // お気に入りページのメイン処理
 // ============================================================
 
-// ★お気に入りページでハートを押して解除したら、そのカードを画面から消す
-// （ハートの見た目・保存の処理は common.js の toggleFavorite が先に行う）
-document.getElementById('favoriteList').addEventListener('click', (event) => {
-  const btn = event.target.closest('.favorite-btn');
-  if (!btn || btn.classList.contains('active')) return; // 解除したときだけ
-
-  const card = document.getElementById('card-' + btn.dataset.id);
-  if (card) card.remove();
-
-  // カードが全部なくなったら「お気に入りなし」メッセージを表示
-  if (document.getElementById('favoriteList').children.length === 0) {
-    document.getElementById('emptyMessage').style.display = 'block';
-  }
-});
+// ★ハートを押して解除しても、カードは画面に残す（もう一度押せば登録し直せる）
+//   ハートの見た目・保存の処理は common.js の toggleFavorite が行う。
+//   解除したカードは、次にこのページを開いたときに表示されなくなる。
 
 // ページが読み込まれたときに実行される処理
 window.addEventListener('DOMContentLoaded', () => {
