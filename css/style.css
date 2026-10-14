@@ -244,6 +244,19 @@ img {
   width: 300px;
 }
 
+/* 検索で1件も見つからなかったときのメッセージ */
+.search-empty {
+  display: none; /* デフォルトは非表示。JSから表示する */
+  text-align: center;
+  padding: 70px 0;
+  color: #172C66;
+}
+
+.search-empty p {
+  font-size: 16px;
+  opacity: 0.7;
+}
+
 /* ========================
    セクション共通
 ======================== */
