@@ -1,38 +1,13 @@
 // ============================================================
 // favorites.js
 // お気に入りページ専用のJavaScriptファイル
-// ※ サイトのデータ（sites）は sites-data.js にある
+// ※ サイトのデータ（sites）は sites-data.js、
+//    お気に入り・モーダルなど共通の処理は common.js にある
 // ============================================================
 
 // ============================================================
 // お気に入りページのメイン処理
 // ============================================================
-
-// localStorageからお気に入りIDの配列を取得する
-function getFavorites() {
-  return JSON.parse(localStorage.getItem('favorites') || '[]');
-}
-
-// お気に入りを追加・削除する
-function saveFavorite(id) {
-  let favs = getFavorites();
-  if (favs.includes(id)) {
-    favs = favs.filter(f => f !== id);
-  } else {
-    favs.push(id);
-  }
-  localStorage.setItem('favorites', JSON.stringify(favs));
-}
-
-// ★追加: HTMLの属性値（data-desc="..." など）に入れる文字を安全な形に変換する
-// 説明文に半角の " があると、そこで属性が終わってしまい文章が途中で切れるため
-function escapeAttr(text) {
-  return String(text)
-    .replace(/&/g, '&amp;')
-    .replace(/"/g, '&quot;')
-    .replace(/</g, '&lt;')
-    .replace(/>/g, '&gt;');
-}
 
 // カードのHTML文字列を作る関数（favorites専用）
 // ★ハートを押すと画面からカードを消す処理も追加している
@@ -99,30 +74,6 @@ window.addEventListener('DOMContentLoaded', () => {
       list.innerHTML += createFavCard(site);
     }
   });
-});
-
-
-// モーダル関連（index.htmlと同じ）
-const modalOverlay = document.getElementById('modalOverlay');
-const modalClose = document.getElementById('modalClose');
-
-function openModal(event, btn) {
-  event.preventDefault();
-  document.getElementById('modalTitle').textContent = btn.dataset.name;
-  document.getElementById('modalImg').src = btn.dataset.img;
-  document.getElementById('modalDesc').textContent = btn.dataset.desc;
-  document.getElementById('modalLink').href = btn.dataset.url;
-  modalOverlay.classList.add('visible');
-}
-
-modalClose.addEventListener('click', () => {
-  modalOverlay.classList.remove('visible');
-});
-
-modalOverlay.addEventListener('click', (event) => {
-  if (event.target === modalOverlay) {
-    modalOverlay.classList.remove('visible');
-  }
 });
 
 // favorites.html を離れる際に、戻るリンククリック以外の遷移を判定
