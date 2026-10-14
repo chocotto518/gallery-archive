@@ -161,6 +161,13 @@ function closeNotice() {
 noticeClose.addEventListener('click', closeNotice);
 noticeBtn.addEventListener('click', closeNotice);
 
+// ★追加: 新着お知らせも Esc キーで閉じる
+document.addEventListener('keydown', (event) => {
+  if (event.key === 'Escape') {
+    closeNotice();
+  }
+});
+
 // ページ読み込み後に新着サイトを確認する（★これが今まで不足していた1行）
 window.addEventListener('DOMContentLoaded', () => {
   checkNewSites();

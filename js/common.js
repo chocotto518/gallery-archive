@@ -85,6 +85,13 @@ modalOverlay.addEventListener('click', (event) => {
   }
 });
 
+// ★追加: Esc キーでも閉じる
+document.addEventListener('keydown', (event) => {
+  if (event.key === 'Escape') {
+    modalOverlay.classList.remove('visible');
+  }
+});
+
 
 // ============================================================
 // カード（両ページとも同じ見た目・同じハートの動き）
