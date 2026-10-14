@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arch!ve</title>
+
+      <style>
+        html,
+        body {
+          background: #172C66;
+        }
+
+        html.skip-loading .loading {
+          display: none;
+        }
+      </style>
+
+      <script>
+        // favorites.html から戻った場合だけ、最初からローディングを隠す
+        if (sessionStorage.getItem('fromFavorites') === 'true') {
+          document.documentElement.classList.add('skip-loading');
+          sessionStorage.removeItem('fromFavorites');
+        }
+      </script>
+
+    <link rel="icon" href="img/favicon.webp">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+
+
+  </head>
+  <body>
+
+    <!-- From Uiverse.io by JkHuger --> 
+    <div class="loading" id="loading">
+      <div class="animation">Arch!ve</div>
+    </div>
+
+    <!-- ヘッダー -->
+    <header class="header">
+      <div class="header-inner">
+        <p class="header-logo"> <img src="img/logo.png" alt=""></p>
+
+        <nav class="header-nav">
+          <ul class="header-nav-list">
+            <li class="header-nav-item">
+              <a href="#website">
+                <span>Web</span>
+                <span>Web</span>
+              </a>
+            </li>
+            <li class="header-nav-item">
+              <a href="#color">
+                <span>Color</span>
+                <span>Color</span>
+              </a>
+            </li>
+            <li class="header-nav-item">
+              <a href="#icon">
+                <span>Icon</span>
+                <span>Icon</span>
+              </a>
+            </li>
+            <li class="header-nav-item">
+              <a href="#other">
+                <span>Other</span>
+                <span>Other</span>
+              </a>
+            </li>
+            <li class="header-nav-item">
+              <a href="#ui">
+                <span>UI</span>
+                <span>UI</span>
+              </a>
+            </li>
+            <li class="header-fav-btn">
+              <a href="favorites.html">
+                <img src="img/fav-fill.svg" alt="お気に入り">
+              </a>
+            </li>
+          </ul>
+
+        </nav>
+
+      </div>
+    </header>
+
+    <!-- 固定ナビバー -->
+    <nav class="sticky-nav">
+      <ul class="sticky-nav-list">
+        <li><a href="#website">Web</a></li>
+        <li><a href="#color">Color</a></li>
+        <li><a href="#icon">Icon</a></li>
+        <li><a href="#ui">UI</a></li>
+        <li><a href="#other">Other</a></li>
+        <li><a href="favorites.html" class="sticky-fav-btn" ><img src="img/fav-fill.svg" alt="お気に入り"></a></li>
+      </ul>
+    </nav>
+
+    <main>
+      <!-- 検索エリア -->
+      <div class="search">
+        <div class="search-inner">
+        <div class="search-box">
+          <input
+           type="text"
+           class="search-input"
+           placeholder="サイト名で検索"
+           id="searchInput"
+           >
+           <img src="img/search.svg" alt="" class="search-icon">
+        </div>
+        </div>
+      </div>
+
+      <!-- Webサイトセクション -->
+      <section class="section" id="website">
+        <div class="section-inner">
+          <h2 class="section-title">
+            <img src="img/web.svg" alt="">Web
+          </h2>
+          <div class="card-list" id="websiteList">
+            <!-- JSがここにカードを生成する -->
+          </div>
+        </div>
+      </section>
+
+
+      <!-- 配色セクション -->
+      <section class="section" id="color">
+        <div class="section-inner">
+          <h2 class="section-title">
+            <img src="img/color.svg" alt="">Color
+          </h2>
+          <div class="card-list" id="colorList">
+            <!-- JSがここにカードを生成する -->
+          </div>
+        </div>
+      </section>
+
+
+      <!-- アイコンセクション -->
+      <section class="section" id="icon">
+        <div class="section-inner">
+          <h2 class="section-title">
+            <img src="img/icon.svg" alt="">Icon
+          </h2>
+          <div class="card-list" id="iconList">
+            <!-- JSがここにカードを生成する -->
+          </div>
+        </div>
+      </section>
+
+      <!-- UIセクション -->
+      <section class="section" id="ui">
+        <div class="section-inner">
+          <h2 class="section-title">
+            <img src="img/ui.svg" alt="">UI
+          </h2>
+          <div class="card-list" id="uiList">
+            <!-- JSがここにカードを生成する -->
+          </div>
+        </div>
+      </section>
+
+      <!-- その他セクション -->
+      <section class="section" id="other">
+        <div class="section-inner">
+          <h2 class="section-title">
+            <img src="img/other.svg" alt="">Other
+          </h2>
+          <div class="card-list" id="otherList">
+            <!-- JSがここにカードを生成する -->
+          </div>
+        </div>
+      </section>
+
+    </main>
+
+    <!-- TOPに戻るボタン -->
+    <button class="back-to-top" id="backToTop">
+      <img src="img/up.svg" alt="TOPに戻る">
+    </button>
+
+    <!-- モーダル 空の器 JSによって情報が流し込まれるイメージ-->
+    <div class="modal-overlay" id="modalOverlay">
+      <div class="modal">
+        <button class="modal-close" id="modalClose">×</button>
+        <h3 class="modal-title" id="modalTitle"></h3>
+        <div class="modal-thumb">
+          <img id="modalImg" src="" alt="">
+        </div>
+        <p class="modal-desc" id="modalDesc"></p>
+        <a class="modal-link" id="modalLink" href="" target="_blank">
+          サイトを見る　↗
+        </a>
+      </div>
+    </div>
+
+    <!-- 新着サイトお知らせダイアログ -->
+    <div class="notice-overlay" id="noticeOverlay" style="display:none;">
+      <div class="notice">
+        <button class="notice-close" id="noticeClose">×</button>
+        <p class="notice-title">サイトを追加しました♪</p>
+        <ul class="notice-list" id="noticeList"></ul>
+        <button class="notice-btn" id="noticeBtn">閉じる</button>
+      </div>
+    </div>
+
+    <!-- フッター -->
+    <footer class="footer">
+      <div class="footer-inner">
+        <p class="footer-logo"><img src="img/logo.png" alt=""></p>
+        <nav class="footer-nav">
+          <ul class="footer-nav-list">
+            <li><a href="#website">Web</a></li>
+            <li><a href="#color">Color</a></li>
+            <li><a href="#icon">Icon</a></li>
+            <li><a href="#ui">UI</a></li>
+            <li><a href="#other">Other</a></li>
+            <li><a href="favorites.html"><img src="img/fav-fill.svg" class="footer-fav"></a></li>
+          </ul>
+        </nav>
+        <p class="footer-copy">© 2026 Archive All rights reserved.</p>
+      </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+  </body>
+</html>

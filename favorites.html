@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arch!ve - お気に入り</title>
+    <link rel="icon" href="img/favicon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+  </head>
+  <body>
+
+    <!-- ヘッダー -->
+    <header class="header">
+      <div class="header-inner">
+        <p class="header-logo">
+          <!-- ★クリックでトップページに戻れるようにリンクにした -->
+          <a href="index.html"><img src="img/logo.png" alt=""></a>
+        </p>
+        <nav class="header-nav">
+          <ul class="header-nav-list">
+            <li class="header-nav-item">
+              <a href="index.html#website">
+                <span>Web</span>
+                <span>Web</span>
+              </a>
+            </li>
+            <li class="header-nav-item">
+              <a href="index.html#color">
+                <span>Color</span>
+                <span>Color</span>
+              </a>
+            </li>
+            <li class="header-nav-item">
+              <a href="index.html#icon">
+                <span>Icon</span>
+                <span>Icon</span>
+              </a>
+            </li>
+            </li>
+            <li class="header-nav-item">
+              <a href="index.html#ui">
+                <span>UI</span>
+                <span>UI</span>
+              </a>
+            </li>
+            <li class="header-nav-item">
+              <a href="index.html#other">
+                <span>Other</span>
+                <span>Other</span>
+              </a>
+            </li>
+            <!-- ★追加: Favoritesリンク（現在のページなのでactive状態） -->
+            <li class="header-fav-btn">
+              <a href="favorites.html">
+                <img src="img/fav-fill.svg" alt="お気に入り">
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <!-- お気に入りセクション -->
+      <section class="section" id="favorites">
+        <div class="section-inner">
+          <h2 class="section-title">
+            <!-- ★ハートのSVGアイコンをインラインで表示 -->
+            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="#172C66">
+              <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+            </svg>
+            Favorites
+          </h2>
+
+          <!-- お気に入りが0件のときに表示するメッセージ -->
+          <div class="empty-message" id="emptyMessage">
+            <p>まだお気に入りがありません。</p>
+          </div>
+
+          <!-- カードが入る場所 -->
+          <div class="card-list" id="favoriteList"></div>
+        </div>
+
+          <!-- ボタンは常に表示 -->
+          <div class="back-btn-wrap">
+            <a href="index.html" class="empty-link">サイト一覧に戻る</a>
+          </div>
+
+      </section>
+    </main>
+
+    <!-- モーダル（index.htmlと同じ構造） -->
+    <div class="modal-overlay" id="modalOverlay">
+      <div class="modal">
+        <button class="modal-close" id="modalClose">×</button>
+        <h3 class="modal-title" id="modalTitle"></h3>
+        <div class="modal-thumb">
+          <img id="modalImg" src="" alt="">
+        </div>
+        <p class="modal-desc" id="modalDesc"></p>
+        <a class="modal-link" id="modalLink" href="" target="_blank">
+          サイトを見る
+        </a>
+      </div>
+    </div>
+
+    <!-- フッター -->
+    <footer class="footer">
+      <div class="footer-inner">
+        <p class="footer-logo"><a href="index.html"><img src="img/logo.png" alt=""></a></p>
+        <nav class="footer-nav">
+          <ul class="footer-nav-list">
+            <li><a href="index.html#website">Web</a></li>
+            <li><a href="index.html#color">Color</a></li>
+            <li><a href="index.html#icon">Icon</a></li>
+            <li><a href="index.html#ui">UI</a></li>
+            <li><a href="index.html#other">Other</a></li>
+            <li><a href="favorites.html"><img src="img/fav-fill.svg" class="footer-fav"></a></li>
+          </ul>
+        </nav>
+        <p class="footer-copy">© 2026 Archive All rights reserved.</p>
+      </div>
+    </footer>
+
+    <!-- このページ専用のJSを読み込む -->
+    <script src="js/favorites.js"></script>
+  </body>
+</html>

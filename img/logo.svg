@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="_レイヤー_2" data-name="レイヤー 2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 318.7 86.73">
+  <defs>
+    <style>
+      .cls-1 {
+        letter-spacing: .06em;
+      }
+
+      .cls-2 {
+        letter-spacing: .07em;
+      }
+
+      .cls-3 {
+        letter-spacing: .07em;
+      }
+
+      .cls-4 {
+        letter-spacing: .05em;
+      }
+
+      .cls-5 {
+        fill: #fef6e4;
+        font-family: FuturaPT-Bold, 'Futura PT';
+        font-size: 79.32px;
+        font-weight: 700;
+      }
+    </style>
+  </defs>
+  <g id="_レイヤー_1-2" data-name="レイヤー 1">
+    <text class="cls-5" transform="translate(0 66.11)"><tspan class="cls-2" x="0" y="0">A</tspan><tspan class="cls-1" x="62.27" y="0">r</tspan><tspan class="cls-2" x="99.07" y="0">ch!</tspan><tspan class="cls-4" x="224.39" y="0">v</tspan><tspan class="cls-3" x="273.81" y="0">e</tspan></text>
+  </g>
+</svg>
