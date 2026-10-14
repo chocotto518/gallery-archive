@@ -50,18 +50,38 @@ backToTop.addEventListener('click', () => {
 
 const searchInput = document.getElementById('searchInput');
 
-searchInput.addEventListener('input', () => {
-  const keyword = searchInput.value.toLowerCase();
-  const cards = document.querySelectorAll('.card');
+const searchEmpty = document.getElementById('searchEmpty');
+const searchEmptyKeyword = document.getElementById('searchEmptyKeyword');
 
-  cards.forEach(card => {
-    const title = card.querySelector('.card-title').textContent.toLowerCase();
-    if (title.includes(keyword)) {
-      card.style.display = 'block';
-    } else {
-      card.style.display = 'none';
-    }
+// ★変更: セクションごとに一致した数を数えて、0件のセクションは見出しごと隠す。
+//         全部0件なら「見つかりませんでした」を出す
+searchInput.addEventListener('input', () => {
+  const keyword = searchInput.value.trim().toLowerCase();
+  let total = 0; // ページ全体で一致したカードの数
+
+  document.querySelectorAll('main .section').forEach(section => {
+    let count = 0; // このセクションで一致したカードの数
+
+    section.querySelectorAll('.card').forEach(card => {
+      const title = card.querySelector('.card-title').textContent.toLowerCase();
+      if (title.includes(keyword)) {
+        card.style.display = 'block';
+        count++;
+      } else {
+        card.style.display = 'none';
+      }
+    });
+
+    section.style.display = count === 0 ? 'none' : ''; // '' は「CSSの指定どおりに戻す」
+    total += count;
   });
+
+  if (total === 0) {
+    searchEmptyKeyword.textContent = '「' + searchInput.value.trim() + '」';
+    searchEmpty.style.display = 'block';
+  } else {
+    searchEmpty.style.display = 'none';
+  }
 });
 
 
