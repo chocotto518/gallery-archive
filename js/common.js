@@ -2,6 +2,7 @@
 // common.js
 // index.html と favorites.html の両方で使う処理
 //   ・お気に入りの保存・読み込み
+//   ・カードの生成とハートの動き（createCard / toggleFavorite）
 //   ・HTMLに入れる文字の変換（escapeAttr）
 //   ・詳細モーダルの開け閉め
 //
@@ -83,3 +84,68 @@ modalOverlay.addEventListener('click', (event) => {
     modalOverlay.classList.remove('visible');
   }
 });
+
+
+// ============================================================
+// カード（両ページとも同じ見た目・同じハートの動き）
+// ============================================================
+
+// カードを生成する関数
+// ★変更点: data-id="${site.id}" を追加した（どのサイトかを識別するため）
+// ★変更点: isFavorited(site.id) でお気に入り済みなら最初からハートを塗りつぶす
+function createCard(site) {
+  const favActive = isFavorited(site.id) ? 'active' : '';
+  return `
+    <div class="card" id="card-${site.id}">
+      <div class="card-title">
+        ${site.name}
+        <div class="card-btns">
+          <button class="detail-btn" onclick="openModal(event,this)"
+            data-name="${escapeAttr(site.name)}"
+            data-img="${escapeAttr(site.img)}"
+            data-desc="${escapeAttr(site.desc)}"
+            data-url="${escapeAttr(site.url)}">
+            <img src="img/detail.svg" alt="">
+          </button>
+          <button class="favorite-btn ${favActive}" onclick="toggleFavorite(event,this)"
+            data-id="${site.id}">
+            <span class="fav-icon"></span>  <!-- ★imgからspanに変更 -->
+          </button>
+        </div>
+      </div>
+      <a href="${site.url}" target="_blank">
+        <div class="card-thumb">
+          <img src="${site.img}" alt="${site.name}">
+        </div>
+      </a>
+    </div>
+  `;
+}
+
+// ★変更点: toggleFavorite に localStorageへの保存処理を追加
+function toggleFavorite(event, btn) {
+  event.preventDefault();
+
+  const id = btn.dataset.id;
+  const isActive = btn.classList.contains('active');
+  const iconEl = btn.querySelector('.fav-icon');
+
+  const easeOutQuart = "cubic-bezier(0.25, 1, 0.5, 1)";
+  const easeInQuart  = "cubic-bezier(0.5, 0, 0.75, 0)";
+
+  // ★transformに統一（translateの代わりにtransformYで表現）
+  const keyframes = [
+  { transform: "scale(0.9, 0.6) translateY(0)" },          // ← 最初からつぶれた状態に
+  { transform: "scale(1.2) translateY(-50%)", offset: 0.3, easing: easeOutQuart },
+  { transform: "scale(1) translateY(0)",      easing: easeInQuart },
+];
+
+  if (isActive) {
+    btn.classList.remove('active'); // 解除はアニメーションなし
+  } else {
+    btn.classList.add('active');
+    iconEl.animate(keyframes, { duration: 500 }); // 塗りありになった瞬間にジャンプ
+  }
+
+  saveFavorite(id);
+}
