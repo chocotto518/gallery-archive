@@ -225,7 +225,7 @@ const sites = [
     addedAt: '2026-08-01',
     img: 'img/realtimecolors.webp',
     desc: '配色とタイポグラフィを同時にリアルタイム確認できるデザインツールです。\n実際のUIサンプル上で色やフォントを切り替えながら確認できるため、「サイト全体としてどう見えるか」をイメージしやすいのが特徴です。\nデザインシステムの検討にも向いています。',
-    url: 'https://www.realtimecolors.com/?colors=050315-fbfbfe-27ceaf-dcfff2-433bff&fonts=Inter-Interhttps://paletton.com/#uid=15A0u0k9tbh6Sni8FhSg09flJ7R'
+    url: 'https://www.realtimecolors.com/?colors=050315-fbfbfe-27ceaf-dcfff2-433bff&fonts=Inter-Inter'
   },
   {
     id: 'multicolr',        // ★追加
@@ -578,6 +578,16 @@ function isFavorited(id) {
 }
 
 
+// ★追加: HTMLの属性値（data-desc="..." など）に入れる文字を安全な形に変換する
+// 説明文に半角の " があると、そこで属性が終わってしまい文章が途中で切れるため
+function escapeAttr(text) {
+  return String(text)
+    .replace(/&/g, '&amp;')
+    .replace(/"/g, '&quot;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;');
+}
+
 // カードを生成する関数
 // ★変更点: data-id="${site.id}" を追加した（どのサイトかを識別するため）
 // ★変更点: isFavorited(site.id) でお気に入り済みなら最初からハートを塗りつぶす
@@ -589,10 +599,10 @@ function createCard(site) {
         ${site.name}
         <div class="card-btns">
           <button class="detail-btn" onclick="openModal(event,this)"
-            data-name="${site.name}"
-            data-img="${site.img}"
-            data-desc="${site.desc}"
-            data-url="${site.url}">
+            data-name="${escapeAttr(site.name)}"
+            data-img="${escapeAttr(site.img)}"
+            data-desc="${escapeAttr(site.desc)}"
+            data-url="${escapeAttr(site.url)}">
             <img src="img/detail.svg" alt="">
           </button>
           <button class="favorite-btn ${favActive}" onclick="toggleFavorite(event,this)"
