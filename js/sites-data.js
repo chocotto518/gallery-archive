@@ -466,6 +466,42 @@ const sites = [
     desc: 'モバイルアプリのUIデザインを中心に掲載しているギャラリーサイトです。\niOSやAndroidの実際のアプリUIを、スクリーンショット単位で参考にできるのが特徴で、ナビゲーション・ボタン・モーダルなど各種パターンを実装レベルで研究しやすいのが特徴です。\nログイン後により多くのスクリーンショットが閲覧でき、実装向けのUIリファレンスとして活用できます。',
     url: 'https://www.ui-pocket.com/mobile'
   },
+  {
+    id: 'mobbin',
+    category: 'ui',
+    name: 'Mobbin',
+    addedAt: '2026-10-15',
+    img: 'img/mobbin.webp',
+    desc: 'iOS・Android・Webで実際に公開されているアプリやサイトの画面を大量に集めた、UIデザインのリファレンスライブラリです。\n1画面ずつだけでなく、オンボーディングや決済などの一連の流れ（フロー）、ダイアログやナビゲーションといったUIパーツ単位でも探せるのが特徴です。\n無料アカウントでも一部を閲覧でき、有料プランではすべての画面の検索などが使えるため、実務での画面設計やUIパターン研究の参考に向いています。',
+    url: 'https://mobbin.com/'
+  },
+  {
+    id: '60fps',
+    category: 'ui',
+    name: '60fps',
+    addedAt: '2026-10-15',
+    img: 'img/60fps.webp',
+    desc: '実際にリリースされているアプリのUIアニメーションやインタラクションを、短い動画で集めたギャラリーサイトです。\n1本の動画が1つの動きに絞られており、タップしたときの反応から画面の切り替えまで、「どう動くか」を細かく確認できるのが特徴です。\niOSアプリを中心にWebアプリやApple Watchも掲載されていて、3D・AI・Bottom Sheetなどの切り口で絞り込めるため、モーションデザインの引き出しを増やしたいときに役立ちます。',
+    url: 'https://60fps.design/'
+  },
+  {
+    id: 'designspells',
+    category: 'ui',
+    name: 'Design Spells',
+    addedAt: '2026-10-15',
+    img: 'img/designspells.webp',
+    desc: 'アプリやWebサイトに隠れた、遊び心のある細かなデザインを集めたギャラリーサイトです。\nマイクロインタラクションやイースターエッグ（隠し要素）など、なくても困らないけれど触ると嬉しくなる「魔法のような」演出を集めているのが特徴です。\nMobile・Desktop・Interactionなどのタグで探せるほか、ニュースレターも配信されており、プロダクトに楽しさを加えるアイデア集として役立ちます。',
+    url: 'https://designspells.com/'
+  },
+  {
+    id: 'inspora',
+    category: 'ui',
+    name: 'Inspora',
+    addedAt: '2026-10-15',
+    img: 'img/inspora.webp',
+    desc: 'デザイナーの作品を集めた、デザインインスピレーションのギャラリーサイトです。\nWeb・Branding・Product・Motion・Illustration・3D・Printとジャンル別に絞り込めて、UIを中心に幅広い分野の作品をまとめて眺められるのが特徴です。\n1時間ごとに更新されているため、最新のデザインの傾向をこまめにチェックしたいときに役立ちます。',
+    url: 'https://www.inspora.design/'
+  },
 
 
 
