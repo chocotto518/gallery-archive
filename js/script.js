@@ -118,8 +118,10 @@ function checkNewSites() {
   let sitesToShow = [];
 
   if (!lastVisit) {
-    // 初回訪問: 2026-08-03 のサイトだけを表示
-    sitesToShow = sites.filter(site => site.addedAt === '2026-08-03');
+    // ★変更: 初回訪問: いちばん新しい追加日のサイトだけを表示
+    //         （日付を決め打ちしないので、サイトを追加すると自動で切り替わる）
+    const latest = sites.reduce((max, site) => (site.addedAt > max ? site.addedAt : max), '');
+    sitesToShow = sites.filter(site => site.addedAt === latest);
   } else {
     // 2回目以降: 前回訪問日より新しいサイトを表示
     sitesToShow = sites.filter(site => {
