@@ -132,8 +132,36 @@ function checkNewSites() {
 
   if (sitesToShow.length === 0) return;
 
+  // ★変更: セクションごとにまとめて、見出し（アイコン＋セクション名）の下にサイトを並べる
+  //         並び順はページのセクションと同じ
+  const sections = [
+    { category: 'website', label: 'Web',   icon: 'img/web.svg' },
+    { category: 'color',   label: 'Color', icon: 'img/color.svg' },
+    { category: 'icon',    label: 'Icon',  icon: 'img/icon.svg' },
+    { category: 'ui',      label: 'UI',    icon: 'img/ui.svg' },
+    { category: 'other',   label: 'Other', icon: 'img/other.svg' },
+  ];
+
   const list = document.getElementById('noticeList');
-    sitesToShow.forEach(site => {
+  sections.forEach(section => {
+    const sectionSites = sitesToShow.filter(site => site.category === section.category);
+    if (sectionSites.length === 0) return; // 新着がないセクションは出さない
+
+    const group = document.createElement('li');
+    group.className = 'notice-group';
+
+    const heading = document.createElement('p');
+    heading.className = 'notice-section';
+    const icon = document.createElement('img');
+    icon.src = section.icon;
+    icon.alt = '';
+    heading.appendChild(icon);
+    heading.appendChild(document.createTextNode(section.label));
+    group.appendChild(heading);
+
+    const siteList = document.createElement('ul');
+    siteList.className = 'notice-sites';
+    sectionSites.forEach(site => {
       const li = document.createElement('li');
       const a = document.createElement('a');
       a.textContent = site.name;
@@ -141,8 +169,12 @@ function checkNewSites() {
       a.target = '_blank';
       a.rel = 'noopener noreferrer';
       li.appendChild(a);
-      list.appendChild(li);
+      siteList.appendChild(li);
     });
+    group.appendChild(siteList);
+
+    list.appendChild(group);
+  });
 
   setTimeout(() => {
     document.getElementById('noticeOverlay').style.display = 'flex';
