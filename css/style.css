@@ -599,12 +599,34 @@ img {
 }
 
 .notice-list {
-  list-style: disc;
-  padding-left: 20px;
   margin-bottom: 20px;
   color: #172C66;
   font-size: 14px;
   line-height: 1.8;
+}
+
+/* ★追加: セクションごとのまとまり */
+.notice-group + .notice-group {
+  margin-top: 12px;
+}
+
+/* ★追加: セクション名（アイコン＋名前） */
+.notice-section {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-weight: 600;
+}
+
+.notice-section img {
+  width: 16px;
+  height: 16px;
+}
+
+/* ★追加: セクションの中のサイト一覧 */
+.notice-sites {
+  list-style: disc;
+  padding-left: 20px;
 }
 
 .notice-list a {
