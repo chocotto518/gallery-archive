@@ -21,6 +21,10 @@
   - ×ボタン（右上）や Esc キーでは閉じられるので、閉じられなくなることはない
   - 一度にたくさん追加する予定があるなら、お知らせの中をスクロールできるようにする（`css/style.css` の `.notice`）
 
+- [ ] **OGP画像のロゴを少しくっきりさせる（任意）**
+  - `img/logo.svg` は文字がフォント（Futura PT）のままで正しく描けないため、`img/logo.png`（横320px）を1.5倍に拡大して `img/ogp.png` を作った
+  - 文字をアウトライン化した SVG か、横1000px くらいの PNG があれば作り直せる
+
 ## 決まりごと
 
 - サイトの追加・修正は `js/sites-data.js` だけを書き換える
@@ -32,6 +36,7 @@
 
 - 2026-11-22
   - Web に Killer Portfolio・Minimal Gallery・mikke!、Color に Web色見本帳、Other に The East Asian Graphics Archive を追加
+  - URL を共有したときのカード（OGP）を設定した（説明文・`img/ogp.png`）
 - 2026-10-15
   - UI セクションに Mobbin・60fps・Design Spells・Inspora を追加
   - 新着お知らせをセクションごとにまとめて表示するようにした
