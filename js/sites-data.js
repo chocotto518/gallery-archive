@@ -161,6 +161,33 @@ const sites = [
     desc: 'クリエイティブプロフェッショナルの高品質なポートフォリオサイトを、職種やデザインスタイルで細かく分類・検索できるギャラリーサイトです。\nエージェンシーからフリーランスデザイナー、フォトグラファーまで、多様なクリエイター向けの参考資料が豊富に揃っており、自分の分野や目指すデザイン表現を効率よく研究できます。\n毎週新しいポートフォリオが追加されるため、最新のクリエイティブトレンドや表現技法を継続的に追跡できるのが特徴です。',
     url: 'https://www.gallereee.com/'
   },
+  {
+    id: 'killerportfolio',
+    category: 'website',
+    name: 'Killer Portfolio',
+    addedAt: '2026-11-22',
+    img: 'img/killerportfolio.webp',
+    desc: 'デザイン性が高く、成果にもつながるポートフォリオサイトを厳選して紹介しているギャラリーサイトです。\n各サイトに「何が良いのか」を一言で添えて紹介しているため、ただ眺めるだけでなく、そのポートフォリオならではの工夫を読み取りやすいのが特徴です。\nPersonal・Company・Design・Development・Videoのカテゴリで絞り込めるため、自分の職種に近いポートフォリオを探したいときに役立ちます。',
+    url: 'https://www.killerportfolio.com/'
+  },
+  {
+    id: 'minimalgallery',
+    category: 'website',
+    name: 'Minimal Gallery',
+    addedAt: '2026-11-22',
+    img: 'img/minimalgallery.webp',
+    desc: '「美しく、機能的なWebサイト」をテーマに、ミニマルで洗練されたサイトを厳選して掲載している海外のWebデザインギャラリーです。\nPortfolio・Startup・Agency・E-commerce・Branding・SaaSなど細かな種類で絞り込めて、Webサイトだけでなくテンプレートやツールも紹介されています。\n2013年から続く老舗で、週1回のメール配信もあり、余白やタイポグラフィを活かしたシンプルなデザインの参考を探したいときに向いています。',
+    url: 'https://minimal.gallery/'
+  },
+  {
+    id: 'mikke',
+    category: 'website',
+    name: 'mikke!',
+    addedAt: '2026-11-22',
+    img: 'img/mikke.webp',
+    desc: 'mikke!は、Webサイトのデザイン事例を集めたギャラリーサイトです。\n実際に公開されているWebサイトを、業種やサイトの種類、デザインのテイスト、配色、フォントなど、さまざまな条件から検索できます。コーポレートサイトや採用サイト、ランディングページなど幅広い事例が掲載されており、Webデザインの参考資料として活用できます。\nレイアウトや配色、文字の使い方、アニメーションなど、さまざまなデザイン表現を比較しながら、自分の制作物のアイデアや方向性を考える際に役立つサイトです。',
+    url: 'https://mikke.scale-group.co.jp/'
+  },
 
   // Color
   {
@@ -279,6 +306,15 @@ const sites = [
     img: 'img/tailwind.webp',
     desc: 'メインカラーをもとに、Tailwind CSS向けのカラーパレットを自動生成できるカラーツールです。\n明度ごとのカラースケールをリアルタイムで作成できるほか、UIプレビューで実際の見え方を確認しながら調整できるのが特徴です。\nデザインシステムの構築やブランドカラーの展開、Webサイトやアプリの配色設計を効率的に行いたいときに役立つサイトです。',
     url: 'https://uicolors.app/generate/444441'
+  },
+  {
+    id: 'noveblo-color',
+    category: 'color',
+    name: 'Web色見本帳',
+    addedAt: '2026-11-22',
+    img: 'img/noveblo-color.webp',
+    desc: '「ノベブロ」のWeb色見本帳は、Webデザインや制作に使用する色を探せる無料ツールです。\n216色のカラーパレットから直感的に好きな色を選択でき、HEX・RGB・HSL・CMYKなどのカラーコードをコピーできます。\n色味による絞り込みや色相順の並べ替え、お気に入り登録、異なるカラーコード形式への変換にも対応しており、Webサイトや印刷物の配色を検討する際に役立ちます。',
+    url: 'https://noveblo.com/color-picker/'
   },
 
 
@@ -596,6 +632,15 @@ const sites = [
     img: 'img/anothergraphic.webp',
     desc: 'タイポグラフィを中心としたグラフィックデザイン作品のアーカイブサイトです。\n世界中のデザイナーやスタジオによる、ポスター・エディトリアルデザイン・アイデンティティなど、文字表現に焦点を当てた高品質なデザイン事例を掲載しており、年代・国・色・表現形式で検索・閲覧できるのが特徴です。\n日々更新される最新のデザイン作品を通じて、グラフィックデザインのトレンドと表現技法を研究できます。',
     url: 'https://anothergraphic.org/'
+  },
+  {
+    id: 'eastasiangraphics',
+    category: 'other',
+    name: 'The East Asian Graphics Archive',
+    addedAt: '2026-11-22',
+    img: 'img/eastasiangraphics.webp',
+    desc: 'East Asian Graphics Archiveは、日本・中国・韓国・台湾など、東アジアを中心としたグラフィックデザイン作品を収集・紹介するアーカイブサイトです。\nポスターやパッケージ、ブランディング、書体、展示ビジュアルなど、さまざまな国や地域のデザイン事例を、制作年やデザイナー、言語などの情報とともに閲覧できます。\n各国の文化や文字表現、色使い、構図の違いを比較しながら、東アジアのグラフィックデザインの多様性や表現のアイデアを学べるサイトです。',
+    url: 'https://eastasiangraphicsarchive.com/'
   },
   
 ];
