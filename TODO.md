@@ -34,9 +34,12 @@
 
 ## やったこと
 
+- 2026-11-24
+  - トップページのタイトルを「Webデザインのインスピレーションに。参考サイト集｜Arch!ve」に変更（OGPのタイトル・お気に入りページはそのまま）
 - 2026-11-22
   - Web に Killer Portfolio・Minimal Gallery・mikke!、Color に Web色見本帳、Other に The East Asian Graphics Archive を追加
   - URL を共有したときのカード（OGP）を設定した（説明文・`img/ogp.png`）
+  - OGP画像のロゴの下に「ギャラリーサイトをぎゅぎゅっとアーカイブ♪」を追加
 - 2026-10-15
   - UI セクションに Mobbin・60fps・Design Spells・Inspora を追加
   - 新着お知らせをセクションごとにまとめて表示するようにした
