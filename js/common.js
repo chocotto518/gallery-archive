@@ -156,3 +156,41 @@ function toggleFavorite(event, btn) {
 
   saveFavorite(id);
 }
+
+
+// ============================================================
+// ★追加: スマホ用のハンバーガーメニュー（768px以下で表示）
+// ============================================================
+
+const siteHeader = document.querySelector('.header');
+const menuBtn = document.getElementById('menuBtn');
+
+function setMenuOpen(open) {
+  siteHeader.classList.toggle('is-menu-open', open);
+  menuBtn.setAttribute('aria-expanded', open ? 'true' : 'false');
+  menuBtn.setAttribute('aria-label', open ? 'メニューを閉じる' : 'メニューを開く');
+}
+
+// ボタンで開け閉め
+menuBtn.addEventListener('click', () => {
+  setMenuOpen(!siteHeader.classList.contains('is-menu-open'));
+});
+
+// メニューの中のリンクを押したら閉じる
+document.querySelectorAll('.header-nav a').forEach(link => {
+  link.addEventListener('click', () => setMenuOpen(false));
+});
+
+// メニューの外を押したら閉じる
+document.addEventListener('click', (event) => {
+  if (!siteHeader.contains(event.target)) {
+    setMenuOpen(false);
+  }
+});
+
+// Esc キーでも閉じる
+document.addEventListener('keydown', (event) => {
+  if (event.key === 'Escape') {
+    setMenuOpen(false);
+  }
+});
