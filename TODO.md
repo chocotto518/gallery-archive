@@ -25,7 +25,7 @@
   - `img/logo.svg` は文字がフォント（Futura PT）のままで正しく描けないため、`img/logo.png`（横320px）を1.5倍に拡大して `img/ogp.png` を作った
   - 文字をアウトライン化した SVG か、横1000px くらいの PNG があれば作り直せる
 
-- [ ] **サイトマップ（`sitemap.xml`）を作って Search Console から送信する（あとで）**
+- [ ] **Search Console からサイトマップ（`sitemap.xml`）を送信する**
 
 ## 決まりごと
 
@@ -41,6 +41,7 @@
   - Google Search Console に登録した（`index.html` の `google-site-verification` タグは消さない）
   - スマホ（768px以下）のヘッダーメニューをハンバーガーメニューにした
   - Search Console でトップページのインデックス登録をリクエストした
+  - `sitemap.xml`（トップページのみ）と `robots.txt` を追加
 - 2026-11-24
   - トップページのタイトルを「Arch!ve｜Webデザインのインスピレーションに。参考サイト集」に変更（OGPのタイトル・お気に入りページはそのまま）
 - 2026-11-22
