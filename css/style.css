@@ -154,6 +154,15 @@ img {
   transform: scale(1.2);
 }
 
+/* ★追加: スマホ用メニューのラベルとボタン（PCでは隠す） */
+.header-fav-label {
+  display: none;
+}
+
+.header-menu-btn {
+  display: none;
+}
+
 /* ========================
   固定ナビバー
 ======================== */
@@ -862,20 +871,113 @@ img {
 }
 
 
-  .header-nav-list {
-    display: flex;
-    gap: 15px; /*gapは子要素同士の間隔を指定するプロパティ*/
+  /* ★変更: ヘッダーのメニューはハンバーガーメニューにまとめる */
+  .header {
+    position: relative;
+    z-index: 150; /* 開いたメニューを固定ナビバー（100）より上に出す */
   }
 
+  /* ハンバーガーボタン（三本線） */
+  .header-menu-btn {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 6px;
+    width: 44px;
+    height: 44px;
+    margin-right: -10px; /* 見た目の右端を余白にそろえる */
+    padding: 0;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+  }
 
-  .header-nav-item a {
-    font-size: 12px;
+  .header-menu-btn span {
+    display: block;
+    width: 24px;
+    height: 2px;
+    border-radius: 1px;
+    background-color: #FEF6E4;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+  }
+
+  /* 開いているときは × にする */
+  .header.is-menu-open .header-menu-btn span:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+  }
+
+  .header.is-menu-open .header-menu-btn span:nth-child(2) {
+    opacity: 0;
+  }
+
+  .header.is-menu-open .header-menu-btn span:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+  }
+
+  /* メニュー本体：ヘッダーの下に出す */
+  .header-nav {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background-color: #172C66;
+    border-top: 1px solid rgba(254, 246, 228, 0.2);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-8px);
+    transition: opacity 0.25s ease, transform 0.25s ease, visibility 0.25s;
+  }
+
+  .header.is-menu-open .header-nav {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+  }
+
+  .header-nav-list {
+    flex-direction: column;
+    gap: 0;
+    padding: 8px 24px 16px;
+  }
+
+  .header-nav-item a,
+  .header-fav-btn a {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    height: auto;
+    padding: 14px 0;
+    font-size: 16px;
+    border-bottom: 1px solid rgba(254, 246, 228, 0.15);
+  }
+
+  /* PC用の文字が入れ替わるアニメーションの2つ目の文字は使わない */
+  .header-nav-item a span + span {
+    display: none;
+  }
+
+  .header-fav-btn {
+    display: block;
+  }
+
+  .header-fav-btn:hover {
+    transform: none;
+  }
+
+  .header-fav-btn a {
+    border-bottom: none;
   }
 
   .header-fav-btn img {
-  width: 12px;
-  height: 12px;
-}
+    width: 16px;
+    height: 16px;
+  }
+
+  .header-fav-label {
+    display: inline;
+  }
 
 
   /* セクション */

@@ -32,7 +32,13 @@
           <!-- ★クリックでトップページに戻れるようにリンクにした -->
           <a href="index.html"><img src="img/logo.png" alt=""></a>
         </p>
-        <nav class="header-nav">
+        <!-- ★追加: スマホ用のメニューボタン（768px以下で表示） -->
+        <button class="header-menu-btn" id="menuBtn" type="button" aria-label="メニューを開く" aria-expanded="false" aria-controls="headerNav">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+        <nav class="header-nav" id="headerNav">
           <ul class="header-nav-list">
             <li class="header-nav-item">
               <a href="index.html#website">
@@ -68,6 +74,7 @@
             <li class="header-fav-btn">
               <a href="favorites.html">
                 <img src="img/fav-fill.svg" alt="お気に入り">
+                <span class="header-fav-label">Favorites</span>
               </a>
             </li>
           </ul>
