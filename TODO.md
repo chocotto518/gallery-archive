@@ -25,15 +25,23 @@
   - `img/logo.svg` は文字がフォント（Futura PT）のままで正しく描けないため、`img/logo.png`（横320px）を1.5倍に拡大して `img/ogp.png` を作った
   - 文字をアウトライン化した SVG か、横1000px くらいの PNG があれば作り直せる
 
+- [ ] **Search Console で「インデックス登録をリクエスト」をもう一度押す**
+  - 2026-11-24 に押したら「割り当て量を超えています」と出た。翌日以降にもう一度
+- [ ] **サイトマップ（`sitemap.xml`）を作って Search Console から送信する（あとで）**
+
 ## 決まりごと
 
 - サイトの追加・修正は `js/sites-data.js` だけを書き換える
 - `id` は一度決めたら変えない（お気に入りの保存に使っているため、変えると登録が消える）
 - `<script>` の読み込み順は `sites-data.js` → `common.js` → `script.js` / `favorites.js` のまま崩さない
+- `index.html` の `google-site-verification` タグは消さない（Search Console の所有権の確認に使っている）
 - 公開は GitHub の `main` 経由だけ。Netlify にフォルダをドラッグして上げる方法（Netlify Drop）は使わない
 
 ## やったこと
 
+- 2026-11-25
+  - Google Search Console に登録した（`index.html` の `google-site-verification` タグは消さない）
+  - スマホ（768px以下）のヘッダーメニューをハンバーガーメニューにした
 - 2026-11-24
   - トップページのタイトルを「Arch!ve｜Webデザインのインスピレーションに。参考サイト集」に変更（OGPのタイトル・お気に入りページはそのまま）
 - 2026-11-22
